@@ -66,6 +66,7 @@ For more information on using the Angular CLI, including detailed command refere
 
 This repo includes a starter path for learning Angular microfrontends with AWS deployment:
 
+- Step-by-step microfrontend guide: [docs/microfrontend-step-by-step.md](docs/microfrontend-step-by-step.md)
 - Roadmap: [docs/aws-angular-microfrontend-roadmap.md](docs/aws-angular-microfrontend-roadmap.md)
 - Local apps guide: [docs/local-microfrontend-apps.md](docs/local-microfrontend-apps.md)
 - GitHub Actions starter workflow: [.github/workflows/deploy-angular-to-aws.yml](.github/workflows/deploy-angular-to-aws.yml)
