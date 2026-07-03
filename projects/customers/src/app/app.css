@@ -37,8 +37,49 @@ h1 {
   border: 1px solid #bddcd2;
   border-radius: 8px;
   background: #ffffff;
+  cursor: pointer;
 }
 
 .customer span {
   color: #49645d;
+}
+
+.customer:hover {
+  border-color: #18705d;
+}
+
+.log-panel {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #bddcd2;
+}
+
+.log-panel h2 {
+  margin: 0 0 12px;
+  font-size: 1rem;
+}
+
+.empty {
+  color: #49645d;
+}
+
+ul {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+li {
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+li strong {
+  color: #18705d;
+  text-transform: uppercase;
 }

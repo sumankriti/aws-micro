@@ -30,8 +30,11 @@ Current state:
 Build commands:
 
 ```bash
+npm run build:shared-core
 npm run build:shell
 npm run build:invoice
 npm run build:customers
 npm run build:all
 ```
+
+The `shared-core` library contains shared cross-cutting services, including the example `LoggerService` used by both `invoice` and `customers`.

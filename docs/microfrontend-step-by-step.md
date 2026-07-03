@@ -317,3 +317,39 @@ Use this order:
 8. Add API Gateway, Lambda, and DynamoDB for real backend data.
 
 This keeps the learning path clean and avoids mixing too many new concepts at once.
+
+## 12. Sharing A Core Service
+
+Cross-cutting services should live in a shared library instead of being copied into each remote.
+
+This repo has a shared library:
+
+```text
+projects/shared-core
+```
+
+The logger service lives here:
+
+```text
+projects/shared-core/src/lib/logger.service.ts
+```
+
+It is exported from:
+
+```text
+projects/shared-core/src/public-api.ts
+```
+
+Invoice and customers import it like this:
+
+```ts
+import { LoggerService } from 'shared-core';
+```
+
+Then they inject it:
+
+```ts
+private readonly logger = inject(LoggerService);
+```
+
+Use this pattern for stable platform services such as logging, auth context, telemetry, feature flags, and API configuration. Avoid using it for domain services like invoice saving or customer search, because that creates tight coupling between remotes.

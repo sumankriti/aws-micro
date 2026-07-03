@@ -18,5 +18,22 @@
     </form>
 
     <p class="status">{{ status }}</p>
+
+    <section class="log-panel" aria-label="Invoice logs">
+      <h2>Recent logs</h2>
+
+      @if (logs().length === 0) {
+        <p class="empty">Save an invoice to write a shared logger entry.</p>
+      } @else {
+        <ul>
+          @for (log of logs(); track log.timestamp) {
+            <li>
+              <strong>{{ log.level }}</strong>
+              <span>{{ log.source }} · {{ log.message }}</span>
+            </li>
+          }
+        </ul>
+      }
+    </section>
   </section>
 </main>

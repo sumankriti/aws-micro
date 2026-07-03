@@ -8,10 +8,11 @@
     "start:invoice": "ng serve invoice --port 4201",
     "start:customers": "ng serve customers --port 4202",
     "build": "ng build shell",
+    "build:shared-core": "ng build shared-core",
     "build:shell": "ng build shell",
     "build:invoice": "ng build invoice",
     "build:customers": "ng build customers",
-    "build:all": "ng build shell && ng build invoice && ng build customers",
+    "build:all": "ng build shared-core && ng build shell && ng build invoice && ng build customers",
     "watch": "ng build shell --watch --configuration development",
     "test": "ng test"
   },
@@ -32,6 +33,7 @@
     "@angular/cli": "^21.2.0",
     "@angular/compiler-cli": "^21.2.0",
     "jsdom": "^28.0.0",
+    "ng-packagr": "^21.2.0",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"

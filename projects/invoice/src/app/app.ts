@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { LoggerService } from 'shared-core';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,10 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './app.css',
 })
 export class App {
+  private readonly logger = inject(LoggerService);
+
+  readonly logs = this.logger.entries;
+
   invoiceForm = new FormBuilder().group({
     customer: ['John'],
     amount: ['500'],
@@ -17,8 +22,19 @@ export class App {
 
   save() {
     const amount = Number(this.invoiceForm.value.amount);
-    this.status = Number.isNaN(amount)
-      ? 'Amount must be a number'
-      : `Invoice draft saved for ${this.invoiceForm.value.customer}`;
+
+    if (Number.isNaN(amount)) {
+      this.status = 'Amount must be a number';
+      this.logger.warn('invoice', 'Invoice save rejected because amount is invalid', {
+        amount: this.invoiceForm.value.amount,
+      });
+      return;
+    }
+
+    this.status = `Invoice draft saved for ${this.invoiceForm.value.customer}`;
+    this.logger.info('invoice', 'Invoice draft saved', {
+      customer: this.invoiceForm.value.customer,
+      amount,
+    });
   }
 }

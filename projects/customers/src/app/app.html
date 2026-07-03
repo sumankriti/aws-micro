@@ -5,12 +5,29 @@
 
     <div class="customer-list">
       @for (customer of customers; track customer.id) {
-        <article class="customer">
+        <article class="customer" (click)="selectCustomer(customer.id)" tabindex="0">
           <strong>{{ customer.name }}</strong>
           <span>{{ customer.id }}</span>
           <span>{{ customer.tier }}</span>
         </article>
       }
     </div>
+
+    <section class="log-panel" aria-label="Customer logs">
+      <h2>Recent logs</h2>
+
+      @if (logs().length === 0) {
+        <p class="empty">Select a customer to write a shared logger entry.</p>
+      } @else {
+        <ul>
+          @for (log of logs(); track log.timestamp) {
+            <li>
+              <strong>{{ log.level }}</strong>
+              <span>{{ log.source }} · {{ log.message }}</span>
+            </li>
+          }
+        </ul>
+      }
+    </section>
   </section>
 </main>
