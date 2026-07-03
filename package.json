@@ -3,8 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve shell --port 4200",
+    "start:shell": "ng serve shell --port 4200",
+    "start:invoice": "ng serve invoice --port 4201",
+    "start:customers": "ng serve customers --port 4202",
+    "build": "ng build shell",
+    "build:shell": "ng build shell",
+    "build:invoice": "ng build invoice",
+    "build:customers": "ng build customers",
+    "build:all": "ng build shell && ng build invoice && ng build customers",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

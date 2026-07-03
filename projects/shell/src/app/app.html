@@ -1,0 +1,27 @@
+<main class="shell">
+  <section class="hero">
+    <p class="eyebrow">Shell app · port 4200</p>
+    <h1>aws-micro shell</h1>
+    <p>
+      Host application for Angular microfrontends deployed through AWS S3,
+      CloudFront, and GitHub Actions.
+    </p>
+  </section>
+
+  <section class="remote-grid" aria-label="Remote applications">
+    @for (remote of remotes; track remote.name) {
+      <article class="remote-card">
+        <div>
+          <p class="eyebrow">{{ remote.status }}</p>
+          <h2>{{ remote.name }}</h2>
+          <p>Shell route: {{ remote.route }}</p>
+          <p>AWS path: {{ remote.deployPath }}</p>
+        </div>
+
+        <a [href]="remote.localUrl" target="_blank" rel="noreferrer">
+          Open local remote
+        </a>
+      </article>
+    }
+  </section>
+</main>

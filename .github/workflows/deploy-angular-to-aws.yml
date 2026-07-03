@@ -32,7 +32,7 @@ jobs:
         run: npm test -- --watch=false
 
       - name: Build
-        run: npm run build
+        run: npm run build:shell
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -41,7 +41,7 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
 
       - name: Upload shell static assets
-        run: aws s3 sync dist/angular-basics/browser s3://${{ vars.AWS_SHELL_S3_BUCKET }} --delete
+        run: aws s3 sync dist/shell/browser s3://${{ vars.AWS_SHELL_S3_BUCKET }} --delete
 
       - name: Invalidate CloudFront cache
         run: aws cloudfront create-invalidation --distribution-id ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"

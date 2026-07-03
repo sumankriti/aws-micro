@@ -28,6 +28,24 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/shell/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/shell/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/invoice/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/invoice/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/customers/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/customers/tsconfig.spec.json"
     }
   ]
 }

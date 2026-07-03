@@ -1,0 +1,16 @@
+<main class="remote">
+  <section>
+    <p class="eyebrow">Customers remote · port 4202</p>
+    <h1>Customers microfrontend</h1>
+
+    <div class="customer-list">
+      @for (customer of customers; track customer.id) {
+        <article class="customer">
+          <strong>{{ customer.name }}</strong>
+          <span>{{ customer.id }}</span>
+          <span>{{ customer.tier }}</span>
+        </article>
+      }
+    </div>
+  </section>
+</main>

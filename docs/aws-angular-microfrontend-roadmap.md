@@ -2,7 +2,7 @@
 
 GitHub repo: `sumankriti/aws-micro`
 
-This repo is for learning Angular microfrontends and AWS deployment together. The current Angular app is the first version of the future `shell`. It can host navigation, shared layout, auth, and runtime loading of remote apps. The invoice form can later move into an independently deployed `invoice` remote.
+This repo is for learning Angular microfrontends and AWS deployment together. The workspace now has a `shell` app and two remote app scaffolds: `invoice` and `customers`. The shell can host navigation, shared layout, auth, and runtime loading of remote apps.
 
 ## Target Architecture
 
@@ -53,19 +53,20 @@ GitHub repository secrets or variables to configure:
 
 The starter workflow is in `.github/workflows/deploy-angular-to-aws.yml`.
 
-## Phase 2: First Remote App
+## Phase 2: First Remote Apps
 
-Move the invoice feature into its own Angular remote app.
+Develop the invoice and customers features as independent Angular apps.
 
 Recommended path:
 
-- Keep the current app as `shell`.
-- Add a new Angular app named `invoice`.
-- Serve the invoice app independently during local development.
-- Deploy the invoice app to its own S3 bucket or CloudFront path.
-- Teach the shell to load the invoice remote.
+- Keep `shell` as the host app.
+- Use `invoice` as the first business remote.
+- Use `customers` as the second business remote.
+- Serve each remote app independently during local development.
+- Deploy each remote app to its own S3 bucket or CloudFront path.
+- Teach the shell to load remotes at runtime.
 
-This teaches the core microfrontend idea: the shell and remote can be built and deployed independently.
+This teaches the core microfrontend idea: the shell and remotes can be built and deployed independently.
 
 ## Phase 3: Add A Real AWS API
 
@@ -83,9 +84,8 @@ This connects the remote frontend to a real AWS backend.
 
 ## Phase 4: Add More Remotes
 
-Add another independently deployed Angular remote, for example:
+Add more independently deployed Angular remotes, for example:
 
-- `customers`
 - `reports`
 - `admin`
 
@@ -113,7 +113,10 @@ Add the production habits one by one:
 
 ```bash
 npm test -- --watch=false
-npm run build
+npm run start:shell
+npm run start:invoice
+npm run start:customers
+npm run build:all
 ```
 
 Connect this local folder to GitHub:

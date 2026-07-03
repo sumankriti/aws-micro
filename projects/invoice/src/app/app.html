@@ -1,0 +1,22 @@
+<main class="remote">
+  <section class="panel">
+    <p class="eyebrow">Invoice remote · port 4201</p>
+    <h1>Invoice microfrontend</h1>
+
+    <form [formGroup]="invoiceForm">
+      <label>
+        Customer
+        <input type="text" formControlName="customer" />
+      </label>
+
+      <label>
+        Amount
+        <input type="text" formControlName="amount" />
+      </label>
+
+      <button type="button" (click)="save()">Save invoice</button>
+    </form>
+
+    <p class="status">{{ status }}</p>
+  </section>
+</main>

@@ -67,6 +67,7 @@ For more information on using the Angular CLI, including detailed command refere
 This repo includes a starter path for learning Angular microfrontends with AWS deployment:
 
 - Roadmap: [docs/aws-angular-microfrontend-roadmap.md](docs/aws-angular-microfrontend-roadmap.md)
+- Local apps guide: [docs/local-microfrontend-apps.md](docs/local-microfrontend-apps.md)
 - GitHub Actions starter workflow: [.github/workflows/deploy-angular-to-aws.yml](.github/workflows/deploy-angular-to-aws.yml)
 
 The first milestone is deploying the shell app from GitHub Actions to S3 and CloudFront. After that, add independently deployed remote Angular apps behind the same CloudFront distribution.
