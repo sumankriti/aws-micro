@@ -1,0 +1,28 @@
+.container{
+
+    width:400px;
+    margin:40px auto;
+
+    font-family:Arial;
+
+}
+
+input{
+
+    width:100%;
+    padding:10px;
+
+}
+
+button{
+
+    padding:10px 20px;
+    cursor:pointer;
+
+}
+
+div{
+
+    margin-top:10px;
+
+}
