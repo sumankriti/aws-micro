@@ -5,6 +5,7 @@ This workspace now has three Angular applications:
 - `shell`: host application on port `4200`
 - `invoice`: invoice remote application on port `4201`
 - `customers`: customers remote application on port `4202`
+- `debugging`: debugging lab remote application on port `4203`
 
 Run each app in a separate terminal:
 
@@ -12,6 +13,7 @@ Run each app in a separate terminal:
 npm run start:shell
 npm run start:invoice
 npm run start:customers
+npm run start:debugging
 ```
 
 Open:
@@ -19,6 +21,7 @@ Open:
 - Shell: `http://localhost:4200`
 - Invoice remote: `http://localhost:4201`
 - Customers remote: `http://localhost:4202`
+- Debugging remote: `http://localhost:4203`
 
 Current state:
 
@@ -34,6 +37,7 @@ npm run build:shared-core
 npm run build:shell
 npm run build:invoice
 npm run build:customers
+npm run build:debugging
 npm run build:all
 ```
 

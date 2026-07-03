@@ -1,0 +1,106 @@
+<main class="lab">
+  <section class="hero">
+    <p class="eyebrow">Debugging remote · port 4203</p>
+    <h1>Principal debugging lab</h1>
+    <p>
+      Practice Chrome DevTools like a production engineer: prove behavior with
+      Console, Sources, Network, Application, and Performance instead of guessing.
+    </p>
+  </section>
+
+  <section class="mentor">
+    <div>
+      <p class="eyebrow">Principal engineer rule</p>
+      <h2>Find the failing layer first</h2>
+      <p>
+        A strong debugger asks what changed, what evidence exists, and which
+        boundary failed: browser, Angular, service, network, cache, or runtime.
+      </p>
+    </div>
+
+    <strong>{{ completedCount() }} drills completed</strong>
+  </section>
+
+  <section class="drill-grid" aria-label="Debugging drills">
+    <article class="drill">
+      <p class="eyebrow">Console</p>
+      <h2>Structured logs</h2>
+      <p>Use Console filters, levels, and table output.</p>
+      <button type="button" (click)="logConsoleDrill()">Run console drill</button>
+    </article>
+
+    <article class="drill">
+      <p class="eyebrow">Sources</p>
+      <h2>Breakpoints</h2>
+      <p>Pause inside TypeScript and inspect state.</p>
+      <button type="button" (click)="triggerBreakpointDrill()">Run breakpoint drill</button>
+    </article>
+
+    <article class="drill">
+      <p class="eyebrow">Network</p>
+      <h2>Failed request</h2>
+      <p>{{ networkStatus() }}</p>
+      <button type="button" (click)="triggerNetworkDrill()">Run network drill</button>
+    </article>
+
+    <article class="drill">
+      <p class="eyebrow">Application</p>
+      <h2>Local storage</h2>
+      <label>
+        Student name
+        <input #studentName type="text" [value]="savedStudentName()" />
+      </label>
+      <button type="button" (click)="saveApplicationState(studentName.value)">Save state</button>
+    </article>
+
+    <article class="drill">
+      <p class="eyebrow">Performance</p>
+      <h2>CPU task</h2>
+      <p>{{ performanceResult() }}</p>
+      <button type="button" (click)="runPerformanceDrill()">Run performance drill</button>
+    </article>
+  </section>
+
+  <section class="timeline" aria-label="Debugging event timeline">
+    <div class="timeline-header">
+      <div>
+        <p class="eyebrow">Evidence timeline</p>
+        <h2>What you have proven</h2>
+      </div>
+      <button type="button" class="secondary" (click)="clearDrills()">Clear</button>
+    </div>
+
+    @if (events().length === 0) {
+      <p class="empty">Run a drill to start building evidence.</p>
+    } @else {
+      <ol>
+        @for (event of events(); track event.id) {
+          <li>
+            <strong>{{ event.panel }}</strong>
+            <span>{{ event.message }}</span>
+            <time>{{ event.timestamp }}</time>
+          </li>
+        }
+      </ol>
+    }
+  </section>
+
+  <section class="timeline" aria-label="Shared logger output">
+    <p class="eyebrow">Shared logger</p>
+    <h2>Recent LoggerService entries</h2>
+
+    @if (logs().length === 0) {
+      <p class="empty">Logger entries appear here and in Console.</p>
+    } @else {
+      <ol>
+        @for (log of logs(); track log.timestamp) {
+          <li>
+            <strong>{{ log.level }}</strong>
+            <span>{{ log.source }} · {{ log.message }}</span>
+            <time>{{ log.timestamp }}</time>
+          </li>
+        }
+      </ol>
+    }
+  </section>
+</main>

@@ -79,6 +79,7 @@ For more information on using the Angular CLI, including detailed command refere
 
 This repo includes a starter path for learning Angular microfrontends with AWS deployment:
 
+- One-month debugging mentorship: [docs/one-month-debugging-mentorship.md](docs/one-month-debugging-mentorship.md)
 - Chrome DevTools debugging deep dive: [docs/chrome-devtools-debugging-deep-dive.md](docs/chrome-devtools-debugging-deep-dive.md)
 - AWS deployment/debugging deep dive: [docs/aws-deployment-debugging-deep-dive.md](docs/aws-deployment-debugging-deep-dive.md)
 - Principal engineer interview guide: [docs/principal-engineer-interview-guide.md](docs/principal-engineer-interview-guide.md)

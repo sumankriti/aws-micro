@@ -49,6 +49,12 @@
     },
     {
       "path": "./projects/shared-core/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/debugging/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/debugging/tsconfig.spec.json"
     }
   ]
 }

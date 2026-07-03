@@ -8,6 +8,7 @@ Apps:
 shell      -> http://localhost:4200 or http://localhost:4300
 invoice    -> http://localhost:4201
 customers  -> http://localhost:4202
+debugging  -> http://localhost:4203
 ```
 
 Shared logger:

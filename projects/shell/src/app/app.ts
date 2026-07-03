@@ -21,5 +21,12 @@ export class App {
       deployPath: '/customers/',
       status: 'remote scaffold',
     },
+    {
+      name: 'Debugging Lab',
+      route: '/debugging',
+      localUrl: 'http://localhost:4203',
+      deployPath: '/debugging/',
+      status: 'training remote',
+    },
   ];
 }
