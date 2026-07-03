@@ -4,17 +4,24 @@ Angular learning repo for AWS deployments and future Angular microfrontends.
 
 Repository target: [sumankriti/aws-micro](https://github.com/sumankriti/aws-micro)
 
-The current Angular app should be treated as the future `shell` application. The next apps can be added as independently deployed remotes, for example `invoice` and `customers`.
+The workspace contains a `shell` application and two remote applications: `invoice` and `customers`.
 
 ## Development server
 
-To start a local development server, run:
+To start the shell application, run:
 
 ```bash
-ng serve
+npm run start:shell
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. If that port is busy, run `npx ng serve shell --port 4300`.
+
+To start the remote apps, run each command in its own terminal:
+
+```bash
+npm run start:invoice
+npm run start:customers
+```
 
 ## Code scaffolding
 
@@ -32,13 +39,19 @@ ng generate --help
 
 ## Building
 
-To build the project run:
+To build the shell project run:
 
 ```bash
-ng build
+npm run build:shell
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+To build all microfrontend apps run:
+
+```bash
+npm run build:all
+```
+
+This will compile the selected project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
 
 ## Running unit tests
 

@@ -84,7 +84,7 @@ aws-micro
   docs
 ```
 
-The root Angular app still exists from the original learning project, but the microfrontend learning work is now under `projects/`.
+The original root Angular app has been removed. The microfrontend learning work is under `projects/`.
 
 ## 5. Apps We Created
 

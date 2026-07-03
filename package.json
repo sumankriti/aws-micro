@@ -12,7 +12,7 @@
     "build:invoice": "ng build invoice",
     "build:customers": "ng build customers",
     "build:all": "ng build shell && ng build invoice && ng build customers",
-    "watch": "ng build --watch --configuration development",
+    "watch": "ng build shell --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
