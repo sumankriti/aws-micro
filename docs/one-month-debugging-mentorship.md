@@ -119,13 +119,16 @@ Practice:
 - Open Network.
 - Disable cache.
 - Reload debugging app.
-- Run Network drill.
-- Inspect failed `/api/debugging-lab/orders/42` request.
+- Run HTTP 200 drill.
+- Inspect `/api/debugging-lab/orders/42`.
+- Notice that the Angular dev server can return `200 OK` for a fake route because of SPA fallback.
+- Run failure drill.
+- Inspect the failed `localhost:59999` request.
 
 Deliverable:
 
 ```text
-I can explain status, initiator, timing, payload, and response.
+I can explain the difference between an HTTP response and a network-level fetch failure.
 ```
 
 ### Day 6: Application Storage

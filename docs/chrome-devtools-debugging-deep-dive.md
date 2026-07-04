@@ -369,6 +369,49 @@ Microfrontend architectures must be measured under realistic network conditions 
 
 ## 14. Network Panel: Future API Debugging
 
+Important `fetch()` rule:
+
+```text
+fetch() enters catch only for network-level failures, CORS blocks, aborts, or similar request failures.
+```
+
+It does not automatically enter `catch` for HTTP status codes like:
+
+```text
+404
+500
+200 with the wrong response body
+```
+
+You must inspect:
+
+```ts
+response.ok
+response.status
+response.headers
+```
+
+In local Angular development, a fake same-origin route such as:
+
+```text
+/api/debugging-lab/orders/42
+```
+
+may return:
+
+```text
+200 OK
+```
+
+because the dev server falls back to `index.html` for SPA routing. That is not a real API success. It is a routing fallback.
+
+The debugging lab has two buttons for this:
+
+```text
+Run HTTP 200 drill -> shows fake route returning an HTTP response
+Run failure drill  -> calls localhost:59999 to force a true network failure and enter catch
+```
+
 When invoice later calls AWS API Gateway, debug requests here:
 
 ```text

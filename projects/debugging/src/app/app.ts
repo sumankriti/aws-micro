@@ -42,18 +42,42 @@ export class App {
     this.record('Sources', `Calculated invoice total ${invoiceTotal}. Set a breakpoint in calculateInvoiceTotal().`);
   }
 
-  async triggerNetworkDrill(): Promise<void> {
-    this.networkStatus.set('Calling a fake API endpoint...');
+  async triggerHttpFallbackDrill(): Promise<void> {
+    this.networkStatus.set('Calling a same-origin route that Angular dev server may fallback to index.html...');
 
     try {
       const response = await fetch('/api/debugging-lab/orders/42');
-      this.networkStatus.set(`Unexpected response: ${response.status}`);
+      const contentType = response.headers.get('content-type') ?? 'unknown';
+
+      this.networkStatus.set(`HTTP response received: ${response.status} ${response.statusText}. Content-Type: ${contentType}`);
+      this.logger.info('debugging', 'HTTP fallback drill received a response', {
+        ok: response.ok,
+        status: response.status,
+        statusText: response.statusText,
+        type: response.type,
+        url: response.url,
+        contentType,
+      });
     } catch (error) {
-      this.networkStatus.set('Expected failure. Inspect the failed request in Network.');
-      this.logger.warn('debugging', 'Network drill failed as expected', error);
+      this.networkStatus.set('Unexpected network-level failure. Inspect Console and Network.');
+      this.logger.error('debugging', 'HTTP fallback drill unexpectedly failed', error);
     }
 
-    this.record('Network', 'Triggered a fake API request. Inspect status, initiator, and timing.');
+    this.record('Network', 'Triggered same-origin request. Inspect why a fake API route returned HTTP 200.');
+  }
+
+  async triggerNetworkFailureDrill(): Promise<void> {
+    this.networkStatus.set('Calling a port with no server to force a true network failure...');
+
+    try {
+      await fetch('http://localhost:59999/api/debugging-lab/orders/42');
+      this.networkStatus.set('Unexpected success. Something is listening on port 59999.');
+    } catch (error) {
+      this.networkStatus.set('Expected network failure. This enters catch because the request could not connect.');
+      this.logger.warn('debugging', 'Network failure drill failed as expected', error);
+    }
+
+    this.record('Network', 'Triggered true network failure. Inspect failed request and catch block.');
   }
 
   saveApplicationState(studentName: string): void {

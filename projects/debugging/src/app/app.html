@@ -38,9 +38,12 @@
 
     <article class="drill">
       <p class="eyebrow">Network</p>
-      <h2>Failed request</h2>
+      <h2>HTTP vs network failure</h2>
       <p>{{ networkStatus() }}</p>
-      <button type="button" (click)="triggerNetworkDrill()">Run network drill</button>
+      <div class="button-stack">
+        <button type="button" (click)="triggerHttpFallbackDrill()">Run HTTP 200 drill</button>
+        <button type="button" (click)="triggerNetworkFailureDrill()">Run failure drill</button>
+      </div>
     </article>
 
     <article class="drill">
